@@ -43,7 +43,7 @@ module ALU
         LDR = 3'b101,
         MOV = 3'b110;
         
-    // Khối always thực thi tất cả logic của ALU
+   
     always @* begin
         
         case (ALUop)

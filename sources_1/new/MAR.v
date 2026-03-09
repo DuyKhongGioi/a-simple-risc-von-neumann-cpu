@@ -22,10 +22,10 @@
 module MAR (
     input  wire        clk,
     input  wire        rst,
-    input  wire        MARld,    // Load Enable: Tín hiệu cho phép nạp địa chỉ
-    input  wire [31:0] MARin,    // Đầu vào địa chỉ (Từ PC hoặc Bus nội bộ)
+    input  wire        MARld,   
+    input  wire [31:0] MARin,    
     
-    output reg  [31:0] MARout    // Đầu ra địa chỉ (Nối thẳng tới cổng Address của Memory)
+    output reg  [31:0] MARout    
 );
 
     always @(posedge clk or posedge rst) begin

@@ -25,22 +25,18 @@ module RAM #(
     parameter ADDR_W = 16
 )(
     input  wire clk,
-    input  wire mem_we,           // Memory Write Enable (từ CU)
-    input  wire mem_re,           // Memory Read Enable (từ CU)
-    input  wire [ADDR_W-1:0] addr,   // Địa chỉ (từ MAR của Datapath)
-    input  wire [DATA_W-1:0] data_in, // Dữ liệu ghi (từ MBR của Datapath)
+    input  wire mem_we,        
+    input  wire mem_re,           
+    input  wire [ADDR_W-1:0] addr,  
+    input  wire [DATA_W-1:0] data_in, 
     
-    output wire [DATA_W-1:0] data_out // Dữ liệu xuất ra (đưa vào MBR của Datapath)
+    output wire [DATA_W-1:0] data_out
 );
 
-    // Khai báo mảng bộ nhớ (Ví dụ: 256 ô nhớ, mỗi ô 16-bit)
-    // Trên thực tế có thể tăng lên tùy tài nguyên FPGA
+
     reg [DATA_W-1:0] memory [0:255];
 
-    // --------------------------------------------------------
-    // QUÁ TRÌNH ĐỌC (Bất đồng bộ)
-    // --------------------------------------------------------
-    // Nếu mem_re = 1, xuất dữ liệu ngay lập tức. Nếu = 0, đưa về tổng trở cao (High-Z).
+
     assign data_out = (mem_re) ? memory[addr[7:0]] : 32'bz;
 
     // --------------------------------------------------------
@@ -52,12 +48,9 @@ module RAM #(
         end
     end
 
-    // --------------------------------------------------------
-    // NẠP CHƯƠNG TRÌNH MẪU KHI KHỞI ĐỘNG
-    // --------------------------------------------------------
+
     initial begin
-        // Để test, bạn tạo một file "program.mem" chứa mã Hex của các lệnh
-        // Vivado sẽ tự động nạp file này vào RAM khi chạy Simulation hoặc nạp board
+
         $readmemh("program.mem", memory); 
     end
 

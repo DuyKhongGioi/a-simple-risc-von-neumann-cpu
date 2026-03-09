@@ -76,17 +76,17 @@ module datapath #(
     (
     .clk(clk),
     .rst(rst),
-    .MARld(mar_ld),    // Load Enable: Tín hiệu cho phép nạp địa chỉ
-    .MARin(mar_tmp),    // Đầu vào địa chỉ (Từ PC hoặc Bus nội bộ)
-    .MARout(mar_out)    // Đầu ra địa chỉ (Nối thẳng tới cổng Address của Memory)
+    .MARld(mar_ld),    
+    .MARin(mar_tmp),   
+    .MARout(mar_out)  
     );
     MBR mbr_inst
     (
     .clk(clk),
     .rst(rst),
-    .MBRld(mbr_ld),    // Load Enable: Tín hiệu cho phép nạp địa chỉ
-    .MBRin(mbr_tmp),    // Đầu vào địa chỉ (Từ PC hoặc Bus nội bộ)
-    .MBRout(mbr_out)    // Đầu ra địa chỉ (Nối thẳng tới cổng Address của Memory)
+    .MBRld(mbr_ld),
+    .MBRin(mbr_tmp),    
+    .MBRout(mbr_out)   
     );
 
     reg_file #(

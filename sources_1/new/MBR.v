@@ -22,10 +22,10 @@
 module MBR (
     input  wire        clk,
     input  wire        rst,
-    input  wire        MBRld,    // Load Enable: Tín hiệu cho phép nạp dữ liệu
-    input  wire [31:0] MBRin,    // Đầu vào dữ liệu (Từ Memory Read hoặc từ Bus nội bộ để Write)
+    input  wire        MBRld,    
+    input  wire [31:0] MBRin,   
     
-    output reg  [31:0] MBRout    // Đầu ra dữ liệu (Đẩy lên Bus nội bộ hoặc đưa vào Memory Write)
+    output reg  [31:0] MBRout 
 );
 
     always @(posedge clk or posedge rst) begin
