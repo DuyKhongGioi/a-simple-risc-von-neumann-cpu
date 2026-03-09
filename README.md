@@ -52,7 +52,7 @@ Fields used in the table below:
 
 ## Simulation & Testing
 
-All instructions have been verified through simulation. To validate the system's ability to execute a continuous flow, the following test program was initialized in memory:
+In simulation, I’ve already tested all the instructions, and I’ve initialized the following program in the memory to check for running a complete program:
 
 ```assembly
 ; Program to test loops and arithmetic
